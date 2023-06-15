@@ -8,28 +8,34 @@ import { Navigate } from 'react-router-dom';
 
 const LoginForm = (props) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form className={c.form} onSubmit={props.handleSubmit}>
             <div>
                 <Field placeholder={'login'} 
-                name={'email'} 
+                name={'email'}
+                className={c.formInput} 
                 component={Input}
                 validate={[required]} />
             </div>
             <div>
                 <Field placeholder={'password'} 
                 type = {'password'}
-                name={'password'} 
+                name={'password'}
+                className={c.formInput} 
                 component={Input}
                 validate={[required]} />
             </div>
-            <div>
-                <Field type='checkbox' name={'rememberMe'} component={'input'} />remember me
+            <div className={c.checkboxText}>
+                <Field type='checkbox' 
+                name={'rememberMe'}
+                className={c.checkbox}
+                component={'input'} />
+                remember me
             </div>
             <div className={c.from_summary_error}>
                 {props.error}
             </div>
             <div>
-                <button>Login</button>
+                <button className={c.submitBtn} >Login</button>
             </div>
         </form>
     )
@@ -51,10 +57,10 @@ const Login = (props) => {
     }
 
     return (
-        <>
-            <h1>Login</h1>
+        <div className={c.container}>
+            <h1 className={c.header}>Login</h1>
             <LoginReduxForm onSubmit={onSubmit}/>
-        </>
+        </div>
     )
 }
 
