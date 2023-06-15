@@ -10,25 +10,25 @@ const LoginForm = (props) => {
     return (
         <form className={c.form} onSubmit={props.handleSubmit}>
             <div>
-                <Field placeholder={'login'} 
-                name={'email'}
-                className={c.formInput} 
-                component={Input}
-                validate={[required]} />
+                <Field placeholder={'login'}
+                    name={'email'}
+                    className={c.formInput}
+                    component={Input}
+                    validate={[required]} />
             </div>
             <div>
-                <Field placeholder={'password'} 
-                type = {'password'}
-                name={'password'}
-                className={c.formInput} 
-                component={Input}
-                validate={[required]} />
+                <Field placeholder={'password'}
+                    type={'password'}
+                    name={'password'}
+                    className={c.formInput}
+                    component={Input}
+                    validate={[required]} />
             </div>
             <div className={c.checkboxText}>
-                <Field type='checkbox' 
-                name={'rememberMe'}
-                className={c.checkbox}
-                component={'input'} />
+                <Field type='checkbox'
+                    name={'rememberMe'}
+                    className={c.checkbox}
+                    component={'input'} />
                 remember me
             </div>
             <div className={c.from_summary_error}>
@@ -37,29 +37,33 @@ const LoginForm = (props) => {
             <div>
                 <button className={c.submitBtn} >Login</button>
             </div>
+            <a className={c.reg}
+                href='https://social-network.samuraijs.com/signUp'>
+                register here
+            </a>
         </form>
     )
 }
 
 const LoginReduxForm = reduxForm({
     form: 'login'
-}) (LoginForm)
+})(LoginForm)
 
 const Login = (props) => {
     const onSubmit = (formData) => {
         props.login(formData.email, formData.password, formData.rememberMe)
     }
-    
+
     if (props.isAuth) {
         return (
-            <Navigate to = '/profile' />
+            <Navigate to='/profile' />
         )
     }
 
     return (
         <div className={c.container}>
             <h1 className={c.header}>Login</h1>
-            <LoginReduxForm onSubmit={onSubmit}/>
+            <LoginReduxForm onSubmit={onSubmit} />
         </div>
     )
 }
@@ -68,4 +72,4 @@ const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth
 })
 
-export default connect (mapStateToProps, {login, logout}) (Login)
+export default connect(mapStateToProps, { login, logout })(Login)
