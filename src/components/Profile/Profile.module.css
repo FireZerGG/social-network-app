@@ -1,0 +1,35 @@
+.profile {
+    height: 400px;
+}
+
+.profile__header {
+    height: 162px;
+    margin-bottom: 15px;
+}
+
+.profile__header_img {
+    width: 667px;
+}
+
+.profile__profile {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 40px;
+}
+
+.profile__avatar {
+    margin-right: 15px;
+}
+
+.profile__avatar_img {
+    width: 90px;
+}
+
+.profile__infoHeader {
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+
+.profile__infoList {
+    margin: 0px;
+}

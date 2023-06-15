@@ -1,0 +1,22 @@
+.posts__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__input {
+    height: 50px;
+    margin-bottom: 10px;
+    background-color: rgb(233, 227, 227);
+    border: 0px;
+    width: 100%;
+}
+
+.form__btnSubmit {
+    width: 50px;
+    margin-left: auto;
+    height: 20px;
+    width: 80px;
+    border: 0px;
+    background-color: rgb(197, 217, 236);
+}
+

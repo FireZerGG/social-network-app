@@ -1,0 +1,35 @@
+.menu {
+    grid-area: m;
+    background-color: rgb(197, 217, 236);
+    margin-top: 30px;
+    margin-right: 10px;
+    width: 120px;
+    height: 500px;
+}
+
+.menu__nav {
+    margin-left: 10px;
+    margin-top: 3px;
+}
+
+.menu__nav_element:not(:last-child) {
+    margin-bottom: 3px;
+}
+
+.menu__nav_element:last-child {
+    margin-top: 20px;
+}
+
+.item {
+    color: black;
+    text-decoration: none;
+}
+
+.item:active {
+    color: black;
+}
+
+.active {
+    color: rgb(102, 141, 127);
+    text-decoration: none;
+}

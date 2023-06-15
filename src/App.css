@@ -1,0 +1,27 @@
+ul li {
+  list-style-type: none;
+}
+
+ul {
+  padding: 0px;
+}
+
+.container {
+  display: grid;
+
+  grid-template-areas:
+    "h h h"
+    "m c c ";
+
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+
+  width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.app_content {
+  grid-area: c;
+  margin-top: 30px;
+}

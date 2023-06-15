@@ -1,0 +1,36 @@
+ul {
+    margin: 0px;
+}
+
+.dialogs {
+    display: grid;
+    grid-template-columns: 3fr 6fr;
+    height: 500px;
+}
+
+.dialogs__list {
+    border-right: 3px rgb(197, 217, 236) solid;
+    border-radius: 2px;
+}
+.chat {
+    display: flex;
+    flex-direction: column;
+}
+
+.dialogs__chat {
+    height: 500px;
+}
+
+.chat {
+    margin-left: 20px;
+}
+
+.chat__form {
+    display: flex;
+}
+
+.chat__input{
+    height: 30px;
+    width: 100%;
+    resize: none;
+}

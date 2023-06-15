@@ -1,0 +1,63 @@
+.header {
+    grid-area: h;
+    background-color: rgb(197, 217, 236);
+    margin-bottom: 5px;
+    height: 80px; 
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__logo {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 60px;
+    height: 60px;
+}
+
+.header__logo_img {
+    width: 60px;
+    height: 60px;
+}
+
+.login {
+    margin-top: 17px;
+    margin-right: 10px;
+    height: auto;
+    display: flex;
+    flex-direction:column;
+}
+
+.logout__btn {
+    margin-top: 5px;
+    background-color: rgb(156, 191, 224);
+    border: 1px solid gray;
+    transition: all ease 0.5s;
+}
+
+.logout__btn:hover {
+    background-color: rgb(184, 199, 212);
+    border: 1px solid white;
+}
+
+.login__button{ 
+    margin-top: 20px;
+    margin-right: 10px;
+    background-color: rgb(156, 191, 224);
+    border: 1px solid gray;
+    height: 33px;
+    width: 51px;
+    padding-top: 7px;
+    padding-left: 9px;
+    transition: all ease 0.5s;
+    text-decoration: none;
+    color: black;
+}
+
+.login__button:hover {
+    background-color: rgb(184, 199, 212);
+    border: 1px solid white;
+}
+
+.login__link {
+    font-size: 17px;
+}

@@ -1,0 +1,90 @@
+.user {
+    display: flex;
+    height: 100px;
+}
+
+.user:not(:last-child) {
+    margin-bottom: 9px;
+    padding-bottom: 11px;
+    border-bottom: 1px solid rgb(197, 217, 236);
+}
+
+.user__avatar {
+    height: 90px;
+    width: 90px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 10px;
+}
+
+.user__avatar_img {
+    height: 90px;
+    width: 90px;
+    border-radius: 45px;
+}
+
+.user__information {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.user__follow_buttons{
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.buttons__btn{
+    height: 40px;
+    width: 140px;
+    background-color: rgb(197, 217, 236);
+    border: none;
+    position: relative;
+}
+
+.button_preloader {
+    position: absolute;
+    top: -15px;
+    left: 35px;
+}
+
+.user__information_name {
+    font-size: 27px;
+    font-weight: 500;
+}
+
+.user__information_status {
+    font-size:18px;
+    font-weight: 400;
+}
+
+.user__information_location {
+    font-size: 13px;
+    font-weight: 100;
+}
+
+.select {
+    text-align: center;
+}
+
+.selected, 
+.nonSelected {
+    background-color: inherit;
+    border: 0px;
+    padding-right: 3.5px;
+    padding-left: 3.5px;
+    font-size: 14.5px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.selected{
+    color: rgb(42, 72, 100);
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.nonSelected {
+    color: rgb(114, 142, 170);
+}
