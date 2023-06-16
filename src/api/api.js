@@ -48,6 +48,17 @@ export const profileApi = {
         const response = await instance.put('/profile/status', {status})
         return response.data
     },
+
+    async savePhoto(photoFile) {
+        const formData = new FormData();
+        formData.append("image", photoFile)
+        const response = await instance.put('/profile/photo', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        return response.data
+    }
 };
 
 export const followApi = {

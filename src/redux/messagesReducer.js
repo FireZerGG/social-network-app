@@ -4,7 +4,7 @@ let initialState = {
     users: [
         { id: 1, name: 'Johnny', avatarPhoto: 'https://i.pinimg.com/736x/c9/68/dc/c968dc85d1c20a9743d1e30860192e4d.jpg',},
         { id: 2, name: 'Lucy', avatarPhoto: 'https://64.media.tumblr.com/44e7461e2d36a416c83aa98e40ddbd2e/c19a7d8fece565fb-a3/s1280x1920/c3f6940a40c8b8c5c05dc6df3e7411ddf9cbbbc3.jpg',},
-        { id: 3, name: 'Diego', avatarPhoto: 'https://www.meme-arsenal.com/memes/baf150b59a15bfd0de3d4cdc20029ebc.jpg',},
+        { id: 3, name: 'Diego', avatarPhoto: 'https://i.pinimg.com/736x/c9/68/dc/c968dc85d1c20a9743d1e30860192e4d.jpg',},
         { id: 4, name: 'Tim', avatarPhoto: 'https://static1.personality-database.com/profile_images/897b7100742e47a9950ad6915e4df3f6.png',},
         { id: 5, name: 'Sandman', avatarPhoto: 'https://i.pinimg.com/236x/1f/31/19/1f311914e00be0a4ebf794ddb02d4534.jpg',},
     ],

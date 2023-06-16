@@ -13,11 +13,7 @@
 }
 
 .menu__nav_element:not(:last-child) {
-    margin-bottom: 3px;
-}
-
-.menu__nav_element:last-child {
-    margin-top: 20px;
+    margin-bottom: 7px;
 }
 
 .item {

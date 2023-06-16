@@ -1,38 +1,54 @@
+input[type="file"] {
+    display: none;
+}
+
 .profile {
     height: 400px;
-}
-
-.profile__header {
-    height: 162px;
-    margin-bottom: 15px;
-}
-
-.profile__header_img {
-    width: 667px;
 }
 
 .profile__profile {
     display: flex;
     flex-direction: row;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .profile__avatar {
     margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
 }
 
 .profile__avatar_img {
-    width: 100px;
-    border-radius: 50px;
+    width: 150px;
+}
+
+.avatar_change {
+    margin-top: 3px;
+    background-color: rgb(197, 217, 236);
+    max-width: 150px;
+    padding: 2px;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
 }
 
 .profile__infoHeader {
     margin-top: 0px;
-    margin-bottom: 15px;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 500;
+    margin-bottom: 10px;
 }
 
-.profile__infoList {
-    margin: 0px;
+.status {
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.aboutMe {
+    margin-bottom: 10px;
+}
+
+.description {
+    font-weight: 500;
 }
