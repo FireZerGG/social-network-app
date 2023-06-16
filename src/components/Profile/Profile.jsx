@@ -11,7 +11,8 @@ const Profile = (props) => {
             updateStatus = {props.updateStatus}
             isOwner={props.isOwner}
             status = {props.status}
-            savePhoto = {props.savePhoto} />
+            savePhoto = {props.savePhoto}
+            saveProfile = {props.saveProfile} />
 
             {/* <PostsContainer/> */}
 

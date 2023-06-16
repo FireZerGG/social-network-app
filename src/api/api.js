@@ -58,7 +58,12 @@ export const profileApi = {
             }
         })
         return response.data
-    }
+    },
+
+    async saveProfile (profile) {
+        const response = await instance.put('/profile', profile)
+        return response.data
+    },
 };
 
 export const followApi = {

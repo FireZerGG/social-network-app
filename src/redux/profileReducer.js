@@ -1,3 +1,4 @@
+import { stopSubmit } from "redux-form";
 import { profileApi } from "../api/api";
 
 const ADD_POST = 'ADD-POST' 
@@ -61,34 +62,40 @@ export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 export const setStatus = (status) => ({ type: SET_STATUS, status })
 export const savePhotoSuccess= (photos) => ({ type: SAVE_PHOTO_SUCCESS, photos })
 
-export const getUser = (id) => {
-    return (dispatch) => {
-            profileApi.getUserInfo(id).then(data => {
-                    dispatch(setUserProfile(data))
-                });
-    }
-}
+export const getUser = (id) => async (dispatch) => {
+    const data = await profileApi.getUserInfo(id);
+    dispatch(setUserProfile(data));
+};
 
 export const getStatus = (userId) => {
     return (dispatch) => {
         profileApi.getStatus(userId).then(data => {
-            dispatch(setStatus(data))
-        })
-    }
-}
+            dispatch(setStatus(data));
+        });
+    };
+};
 
 export const updateStatus = (status) => async (dispatch) => {
-    const data = await profileApi.updateStatus(status)
+    const data = await profileApi.updateStatus(status);
     if (data.resultCode === 0) {
-        dispatch(setStatus(status))
-    }
-}
+        dispatch(setStatus(status));
+    };
+};
 
 export const savePhoto = (file) => async (dispatch) => {
-    const data = await profileApi.savePhoto(file)
+    const data = await profileApi.savePhoto(file);
     if (data.resultCode === 0) {
-        dispatch(savePhotoSuccess(data.data.photos))
-    }
-}
+        dispatch(savePhotoSuccess(data.data.photos));
+    };
+};
+
+export const saveProfile = (profile) => async (dispatch, getState) => {
+    const userId = getState().auth.userId
+    const data = await profileApi.saveProfile(profile);
+
+    if (data.resultCode === 0) {
+        dispatch(getUser(userId))
+    };
+};
 
 export default profileReducer;

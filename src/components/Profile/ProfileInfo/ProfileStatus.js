@@ -31,7 +31,7 @@ const ProfileStatus = (props) => {
             {!editMode
                 ? <div style={{ minWidth: '10px', minHeight: '10px' }} >
                     <span className={c.status} onDoubleClick={activateEditMode} title="Изменить статус">
-                        <div className={c.description} >status:</div> {props.status || '------'}
+                        <b >status:</b> {props.status || '------'}
                     </span>
                 </div>
 
