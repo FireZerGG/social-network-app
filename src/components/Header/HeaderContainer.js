@@ -5,8 +5,6 @@ import { authUser, logout } from '../../redux/authReducer';
 
 class HeaderContainer extends React.Component {
 
-
-
     render() {
         return (
             <Header {...this.props} />
@@ -20,5 +18,5 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps, {
-    authUser, logout
+     logout
 })(HeaderContainer);

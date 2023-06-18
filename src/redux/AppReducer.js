@@ -19,15 +19,16 @@ const AppReducer = (state = initialState, action) => {
     };
 };
 
-export const initializedSuccess = () => ({ type: INITIALIZED_SUCCESS});
+export const initializedSuccess = () => ({ type: INITIALIZED_SUCCESS });
 
 export const initializeApp = () => {
     return (dispatch) => {
-        let promise = dispatch(authUser())
-
-        promise.then(() => {
-            dispatch(initializedSuccess())
-        })
+        setTimeout(() => {
+            let promise = dispatch(authUser())
+            promise.then(() => {
+                dispatch(initializedSuccess())
+            })
+        }, 1000)
     };
 };
 

@@ -21,8 +21,8 @@ export const authApi = {
         return response.data;
     },
 
-    async login (email, password, rememberMe = false) {
-        const response = await instance.post(`auth/login`, {email, password, rememberMe});
+    async login (email, password, rememberMe = false, captcha = null) {
+        const response = await instance.post(`auth/login`, {email, password, rememberMe, captcha});
         return response;
     },
 
@@ -76,4 +76,11 @@ export const followApi = {
         const response = await instance.post(`/follow/${id}`);
         return response.data.resultCode;
     }
+}
+
+export const securityAPI = {
+    async getCaptchaUrl () {
+        const response = await instance.get(`/security/get-captcha-url`);
+        return response;
+    },
 }

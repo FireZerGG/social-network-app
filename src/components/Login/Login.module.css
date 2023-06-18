@@ -3,8 +3,10 @@
 }
 
 .container {
+    display: flex;
+    flex-direction: row;
     position: relative;
-    height: 220px;
+    height: 300px;
 }
 
 .header {
@@ -26,6 +28,9 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    height: 200px;
+    display: flex;
+    flex-direction: column;
 }
 
 .formInput {
@@ -62,8 +67,10 @@
     color: rgb(45, 72, 97);
 }
 
+.btnContainer {
+    height: 40px;
+}
+
 .reg {
-    position: absolute;
-    transform: translateY(40px) translateX(68%);
-    color: rgb(45, 72, 97);
+    margin-left: 27%;
 }

@@ -6,7 +6,6 @@ import { initializeApp } from './redux/AppReducer';
 import ProfileContainer from './components/Profile/profileContainer';
 import Menu from './components/Menu/Menu';
 import Login from './components/Login/Login';
-// import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UsersContainer from './components/Users/UsersContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Preloader from './components/common/preloader';
@@ -59,5 +58,35 @@ class App extends React.Component {
 const mapStateToProps = (state) => ({
   initialized: state.App.initialized
 })
+
+// const App = () => {
+//   return (
+//     <div className='container'>
+
+//         <HeaderContainer />
+
+//         <Menu />
+
+//         <div className='app_content'>
+//           <Routes>
+//             <Route path='/' element={<ProfileContainer />} />
+//             <Route path='/profile/:userId?' element={<ProfileContainer />} />
+            
+//             <Route path='/dialogs' element={
+//               <Suspense fallback = {<Preloader />}>
+//                 <DialogsContainer />
+//               </Suspense>}
+//             />
+
+//             <Route path='/users' element={<UsersContainer />} />
+
+//             <Route path='/login' element={<Login />} />
+//           </Routes>
+//         </div>
+//       </div>
+//   )
+// }
+
+// export default App
 
 export default connect(mapStateToProps, {initializeApp})(App);
