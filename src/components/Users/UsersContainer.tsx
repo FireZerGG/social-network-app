@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import {toggleFollowingProgress, 
+import {toggleFollowingProgress,  
         resetData, setCurrentPage, 
         requestUsers, follow, unFollow } from "../../redux/usersReducer";
 import Users from './Users';
@@ -8,8 +8,27 @@ import preloader from '../../assets/images/preloader.svg'
 import { getUsers, getPageSize, 
         getTotalUsersCount, getCurrentPage, 
         getIsFetching, getFollowingInProgress } from "../../redux/usersSelectors";
+import { userType } from "../../types/types";
+import { appStateType } from "../../redux/reduxStore";
 
-class UsersAPIComponent extends React.Component {
+
+    type propsType = {
+        currentPage: number
+        pageSize: number
+        isFetching: boolean
+        users: Array<userType>
+        totalUsersCount: number
+        followingInProgress: Array<number>
+
+        unFollow: (id: number) => void
+        follow: (id: number) => void
+        requestUsers: (currentPage: number, pageSize: number) => void
+        resetData: () => void
+        setCurrentPage: (currentPage: number) => void
+        toggleFollowingProgress: (value: boolean, id: number) => void
+    }
+
+class UsersAPIComponent extends React.Component<propsType> {
 
     componentDidMount() {
         this.props.requestUsers(this.props.currentPage, this.props.pageSize);
@@ -19,12 +38,12 @@ class UsersAPIComponent extends React.Component {
         this.props.resetData();
     };
     
-    onPageChanged = (currentPage) => {
+    onPageChanged = (currentPage:number) => {
         this.props.setCurrentPage(currentPage);
         this.props.requestUsers(currentPage, this.props.pageSize);
     };
 
-    toggleFollowingProgress = (value, id) => {
+    toggleFollowingProgress = (value:boolean, id:number) => {
         this.props.toggleFollowingProgress(value, id);
     };
 
@@ -48,14 +67,15 @@ class UsersAPIComponent extends React.Component {
                             follow={this.props.follow}
                             onPageChanged={this.onPageChanged}
                             followingInProgress={this.props.followingInProgress}
-                        />}
+                        />
+                    }
                 </div>
             </>
         );
     };
 };
 
-let mapStateToProps = (state) => {
+let mapStateToProps = (state: appStateType) => {
     return {
         users: getUsers(state),
         pageSize: getPageSize(state),

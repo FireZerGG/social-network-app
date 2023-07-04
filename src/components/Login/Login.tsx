@@ -1,12 +1,18 @@
-import { Field, reduxForm } from 'redux-form';
+import React from 'react';
+import { Field, InjectedFormProps, reduxForm } from 'redux-form';
 import c from './Login.module.css'
 import { Input } from '../common/FormsControls';
 import { required } from '../../utils/validators';
 import { connect } from 'react-redux';
 import { login, logout } from '../../redux/authReducer';
 import { Navigate } from 'react-router-dom';
+import { appStateType } from '../../redux/reduxStore';
 
-const LoginForm = (props) => {
+type loginFormOwnProps = {
+    captchaUrl: string | null
+}
+
+const LoginForm: React.FC<InjectedFormProps<loginFormValuesType, loginFormOwnProps> & loginFormOwnProps> = (props) => {
     return (
         <form className={c.form} onSubmit={props.handleSubmit}>
             <div>
@@ -32,7 +38,7 @@ const LoginForm = (props) => {
                 remember me
             </div>
 
-            {props.captchaUrl && <img src={props.captchaUrl}/>}
+            {props.captchaUrl && <img alt='captcha' src={props.captchaUrl}/>}
             {props.captchaUrl && <div>
                 <Field placeholder={'Введите символы с картинки'}
                     name={'captcha'}
@@ -54,12 +60,28 @@ const LoginForm = (props) => {
     )
 }
 
-const LoginReduxForm = reduxForm({
-    form: 'login'
-})(LoginForm)
+const LoginReduxForm = reduxForm<loginFormValuesType, loginFormOwnProps>(
+    {form: 'login'}
+)(LoginForm)
 
-const Login = (props) => {
-    const onSubmit = (formData) => {
+type mapStatePropsType = {
+    captchaUrl: string | null
+    isAuth: boolean
+}
+
+type mapDispatchPropsType = {
+    login: (email: string, password: string, rememberMe: boolean, captcha: any) => void
+}
+
+type loginFormValuesType = {
+    email: string
+    password: string
+    rememberMe: boolean
+    captcha: string | null
+}
+
+const Login: React.FC<mapStatePropsType & mapDispatchPropsType> = (props) => {
+    const onSubmit = (formData: any) => {
         props.login(formData.email, formData.password, formData.rememberMe, formData.captcha)
     }
 
@@ -77,7 +99,7 @@ const Login = (props) => {
     )
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state:appStateType):mapStatePropsType => ({
     isAuth: state.auth.isAuth,
     captchaUrl: state.auth.captchaUrl,
 })

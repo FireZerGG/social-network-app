@@ -5,7 +5,7 @@ const Header = (props) => {
     return (
         <section className={c.header}>
             <div className={c.header__logo}>
-                <img alt='asd' className={c.header__logo_img} src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/2048px-Telegram_logo.svg.png' />
+                {/* <img alt='asd' className={c.header__logo_img} src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/2048px-Telegram_logo.svg.png' /> */}
             </div>
             {props.isAuth
 

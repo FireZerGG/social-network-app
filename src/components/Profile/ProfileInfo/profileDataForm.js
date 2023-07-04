@@ -29,8 +29,7 @@ const ProfileDataForm = (props) => {
                         <div className={c.form_job}>
                             <b>в поиске работы?*</b>
                             <Field name={'lookingForAJob'} component={Input} type={'checkbox'}
-                                className={c.formCheckbox} validate={[required]} 
-                                placeholder={'обязательное поле'} />
+                                className={c.formCheckbox} placeholder={'обязательное поле'} />
                         </div>
                     </div>
                 </div>
