@@ -1,9 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import c from './Menu.module.css';
 
-const setActive = ({isActive}) => isActive ? `${c.active}` : `${c.item}`;
+const setActive = ({isActive}: any) => isActive ? `${c.active}` : `${c.item}`;
 
-const Menu = () => {
+const Menu: React.FC = () => {
     return (
         <section className={c.menu}>
                 <ul className={c.menu__nav}>

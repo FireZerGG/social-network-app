@@ -1,7 +1,16 @@
 import { NavLink, Navigate } from 'react-router-dom';
 import c from './Header.module.css';
 
-const Header = (props) => {
+export type headerMapPropsType = {
+    isAuth: boolean
+    login: string
+}
+
+export type headerDispatchPropsType = {
+    logout: () => void
+}
+
+const Header: React.FC<headerMapPropsType & headerDispatchPropsType> = (props) => {
 
     return (
         <section className={c.header}>

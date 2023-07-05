@@ -1,6 +1,10 @@
 import c from './Message.module.css'
 
-const Message = (props) => {
+type propsType = {
+    text: string
+}
+
+const Message: React.FC<propsType> = (props) => {
     return (
         <li className={c.message}>
            {props.text}

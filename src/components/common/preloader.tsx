@@ -1,6 +1,6 @@
 import preloader from '../../assets/images/preloader.svg'
 
-const Preloader = (props) => {
+const Preloader :React.FC= () => {
     return (
         <div style={{
             marginTop: '100px',

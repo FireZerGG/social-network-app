@@ -1,7 +1,13 @@
 import { NavLink } from 'react-router-dom';
 import c from './Item.module.css'
 
-const Item = (props) => {
+type propsType = {
+    id: number
+    avatarPhoto: string
+    name: string
+}
+
+const Item:React.FC<propsType> = (props) => {
     return (
         <li className={c.item}>
             <NavLink className={c.item__link} to={"/dialogs/" + props.id}>
