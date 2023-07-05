@@ -11,7 +11,7 @@ const Menu: React.FC = () => {
                     <NavLink to='/profile' className={setActive}>Profile</NavLink>
                 </li>
                 <li className={c.menu__nav_element}>
-                    <NavLink to='/dialogs' className={setActive}>Messages</NavLink>
+                    <NavLink to='/chat' className={setActive}>Messages</NavLink>
                 </li>
                 <li className={c.menu__nav_element}>
                     <NavLink to='/users' className={setActive}>Users</NavLink>

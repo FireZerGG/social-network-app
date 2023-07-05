@@ -11,6 +11,7 @@ import UsersContainer from './components/Users/UsersContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Preloader from './components/common/preloader';
 import { appStateType } from './redux/reduxStore';
+import { ChatPage } from './pages/chat/ChatPage';
 
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 
@@ -55,6 +56,8 @@ class App extends React.Component<mapPropsType & dispatchPropsType> {
             <Route path='/users' element={<UsersContainer />} />
 
             <Route path='/login' element={<Login />} />
+
+            <Route path = '/chat' element = {<ChatPage />}/>
           </Routes>
         </div>
       </div>
