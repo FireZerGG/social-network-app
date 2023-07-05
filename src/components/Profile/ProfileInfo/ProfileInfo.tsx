@@ -1,11 +1,21 @@
-import React, { useState } from "react"
+import React, { ChangeEvent, useState } from "react"
 import c from './ProfileInfo.module.css'
 import noPhoto from '../../../assets/images/noPhoto.png'
 import preloader from '../../../assets/images/preloader.svg'
 import ProfileStatus from './ProfileStatus'
 import ProfileDataForm from "./profileDataForm"
+import { profileType } from "../../../types/types"
 
-const ProfileInfo = (props) => {
+type propsType = {
+    profile: profileType | null
+    status: string
+    updateStatus:(status:string ) => void
+    isOwner: boolean
+    savePhoto: (file: File) => void
+    saveProfile: (profile: profileType) => void
+}
+
+const ProfileInfo: React.FC<propsType> = (props) => {
 
     let [editMode, setEditMode] = useState(false);
 
@@ -17,11 +27,13 @@ const ProfileInfo = (props) => {
         )
     }
 
-    const onMainPhotoSelected = (e) => {
-        props.savePhoto(e.target.files[0])
+    const onMainPhotoSelected = (e: ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files?.length) {
+            props.savePhoto(e.target.files[0])
+        }
     }
 
-    const onSubmit = (formData) => {
+    const onSubmit = (formData:profileType) => {
         props.saveProfile(formData);
         setEditMode(false)
     }
@@ -44,20 +56,26 @@ const ProfileInfo = (props) => {
                 </div>
                 <div className={c.profile__info}>
                     <h4 className={c.profile__infoHeader}> {props.profile.fullName}</h4>
-                    <ProfileStatus status={props.status} className='aaa' updateStatus={props.updateStatus} isOwner={props.isOwner} />
+                    <ProfileStatus status={props.status} updateStatus={props.updateStatus} isOwner={props.isOwner} />
                 </div>
             </div>
 
             {editMode
                 ? <ProfileDataForm {...props} onSubmit={onSubmit} initialValues={props.profile}/>
-                : <ProfileData {...props} goToEditMode={() => {
+                : <ProfileData isOwner = {props.isOwner} profile = {props.profile} goToEditMode={() => {
                     setEditMode(true)
                 }} />}
         </>
     )
 }
 
-const ProfileData = (props) => {
+type ProfileDataPropsType = {
+    profile: profileType 
+    isOwner: boolean
+    goToEditMode: () => void
+}
+
+const ProfileData: React.FC<ProfileDataPropsType> = (props) => {
     return (
         <>
             <div className={c.aboutMe}> <b>Обо мне:</b> {props.profile.aboutMe || '------'}</div>

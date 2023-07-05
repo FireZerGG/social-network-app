@@ -2,9 +2,15 @@ import React from 'react';
 import c from './Dialogs.module.css';
 import Item from './Item/Item';
 import Message from './Message/Message';
-import { Field, reduxForm } from 'redux-form'
+import { Field, InjectedFormProps, reduxForm } from 'redux-form'
+import { initializeStateType } from '../../redux/messagesReducer';
 
-const AddMessageForm = (props) => {
+type messageFormValuesType = {
+    newMessageBody: string
+}
+type propsType = {}
+
+const AddMessageForm: React.FC<InjectedFormProps<messageFormValuesType, propsType> & propsType> = (props) => {
     return (
         <form className={c.chat__form} onSubmit={props.handleSubmit}>
             <Field component={'input'}
@@ -20,13 +26,18 @@ const AddMessageForm = (props) => {
     )
 }
 
-const AddMessageReduxForm = reduxForm({
+const AddMessageReduxForm = reduxForm<messageFormValuesType>({
     form: 'dialogAddMessageForm'
 }) (AddMessageForm)
 
-const Dialogs = (props) => {
+type ownPropsType = {
+    messagesPage: initializeStateType
+    sendMessage: (messageText: string) => void
+}
 
-    let sendMessage = (formData) => {
+const Dialogs: React.FC<ownPropsType> = (props) => {
+
+    let sendMessage = (formData:any) => {
         props.sendMessage(formData.newMessageText)
     };
 

@@ -1,8 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import {toggleFollowingProgress,  
-        resetData, setCurrentPage, 
-        requestUsers, follow, unFollow } from "../../redux/usersReducer";
+import { actions, requestUsers, follow, unFollow } from "../../redux/usersReducer";
 import Users from './Users';
 import preloader from '../../assets/images/preloader.svg'
 import { getUsers, getPageSize, 
@@ -88,7 +86,8 @@ let mapStateToProps = (state: appStateType) => {
 };
 
 export default connect(mapStateToProps, {
-    resetData, setCurrentPage, 
-    toggleFollowingProgress,
+    resetData: actions.resetData, 
+    setCurrentPage: actions.setCurrentPage, 
+    toggleFollowingProgress: actions.toggleFollowingProgress,
     requestUsers, follow, unFollow 
 })(UsersAPIComponent)

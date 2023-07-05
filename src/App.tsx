@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { initializeApp } from './redux/AppReducer.ts';
+import { initializeApp } from './redux/AppReducer';
 import { Suspense } from 'react';
 import ProfileContainer from './components/Profile/profileContainer';
 import Menu from './components/Menu/Menu';
@@ -10,10 +10,17 @@ import Login from './components/Login/Login';
 import UsersContainer from './components/Users/UsersContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Preloader from './components/common/preloader';
+import { appStateType } from './redux/reduxStore';
 
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 
-class App extends React.Component {
+type mapPropsType = ReturnType<typeof mapStateToProps>
+type dispatchPropsType = {
+  initializeApp: () => void
+}
+
+
+class App extends React.Component<mapPropsType & dispatchPropsType> {
 
   componentDidMount() {
     this.props.initializeApp()
@@ -55,7 +62,7 @@ class App extends React.Component {
   }
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state:appStateType) => ({
   initialized: state.App.initialized
 })
 

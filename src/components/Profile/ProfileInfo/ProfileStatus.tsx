@@ -1,7 +1,13 @@
-import React, { useEffect, useState } from "react"
+import React, { ChangeEvent, useEffect, useState } from "react"
 import c from './ProfileInfo.module.css'
 
-const ProfileStatus = (props) => {
+type propsType = {
+    status: string | null
+    isOwner: boolean
+    updateStatus: (status: string) => void
+}
+
+const ProfileStatus: React.FC<propsType> = (props) => {
 
     let [editMode, setEditMode] = useState(false);
     let [status, setStatus] = useState(props.status);
@@ -19,10 +25,10 @@ const ProfileStatus = (props) => {
 
     const deactivateEditMode = () => {
         setEditMode(false);
-        props.updateStatus(status);
+        props.updateStatus(status as string);
     };
 
-    const onStatusChange = (e) => {
+    const onStatusChange = (e:React.FormEvent<HTMLInputElement>) => {
         setStatus(e.currentTarget.value);
     };
 
@@ -37,8 +43,8 @@ const ProfileStatus = (props) => {
 
                 : <div>
                     <input
-                        value={status}
                         onChange={onStatusChange}
+                        value={status as string }
                         onBlur={deactivateEditMode}
                         autoFocus={true} />
                 </div>

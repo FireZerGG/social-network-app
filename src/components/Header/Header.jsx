@@ -2,6 +2,7 @@ import { NavLink, Navigate } from 'react-router-dom';
 import c from './Header.module.css';
 
 const Header = (props) => {
+
     return (
         <section className={c.header}>
             <div className={c.header__logo}>

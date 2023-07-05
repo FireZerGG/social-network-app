@@ -1,8 +1,18 @@
-import PostsContainer from './posts/postsContainer';
+import { profileType } from '../../types/types';
 import c from './Profile.module.css';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
-const Profile = (props) => {
+type propsType = {
+    profile: profileType | null
+    isOwner: boolean
+    status: string
+    savePhoto: (file: File) => void
+    saveProfile: (profile: profileType) => void
+    updateStatus: (status: string ) => void
+
+}
+
+const Profile: React.FC<propsType> = (props) => {
 
     return (
         <section className={c.profile}>
@@ -13,8 +23,6 @@ const Profile = (props) => {
             status = {props.status}
             savePhoto = {props.savePhoto}
             saveProfile = {props.saveProfile} />
-
-            {/* <PostsContainer/> */}
 
         </section>
     )
