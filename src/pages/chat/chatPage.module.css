@@ -1,0 +1,62 @@
+.form {
+    display: flex;
+}
+
+.formInput {
+    width: 590px;
+    resize : none;
+    height: 40px;
+    font-size: large;
+    border: 2px solid rgb(106, 142, 175);
+    margin-bottom: 7px;
+}
+
+.sendBtn {
+    margin-left: 5px;
+    background-color: rgb(197, 217, 236);
+    padding: 3px;
+    height: 47px;
+    width: 64px;
+    cursor: pointer;
+    text-align: center;
+    border: 2px solid rgb(197, 217, 236);
+    font-size: 15px;
+}
+
+.messagesContainer {
+    display: flex;
+    flex-direction: column;
+    height: 430px;
+    overflow: auto;
+}
+
+.message {
+    border-bottom: 1px solid rgb(134, 156, 177);
+    padding-bottom: 10px;
+    padding-top: 10px;
+    height: 60px;
+}
+
+.user {
+    display: flex;
+}
+
+.userAvatar {
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+}
+
+.userName {
+    margin: 0px;
+    margin-top: 6px;
+    margin-left: 5px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.messageText {
+    margin-top: 7px;
+    margin-left: 15px;
+    font-size: 14px;
+}

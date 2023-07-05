@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import c from './chatPage.module.css'
 
 export const ChatPage: React.FC = () => {
     return (
@@ -71,7 +72,7 @@ const Messages: React.FC<{wsChanel: WebSocket | null}> = ({wsChanel}) => {
     }, [wsChanel])
 
     return (
-        <div style={{ height: '430px', overflow: 'auto' }}>
+        <div className={c.messagesContainer} >
             {messages.map((m, index) => <Message key={index} message={m} />)}
         </div>
     )
@@ -79,12 +80,13 @@ const Messages: React.FC<{wsChanel: WebSocket | null}> = ({wsChanel}) => {
 
 const Message: React.FC<{ message: chatMessageType }> = ({ message }) => {
     return (
-        <>
-            <img style={{ width: '40px' }} src={message.photo} /> <b>{message.userName}</b>
-            <br />
-            {message.message}
-            <hr />
-        </>
+        <div className={c.message}>
+            <div className={c.user}>
+                <img  className={c.userAvatar}  src={message.photo} />
+                <p className={c.userName}>{message.userName}</p>
+            </div>
+            <p className={c.messageText}>{message.message}</p>
+        </div>
     )
 }
 
@@ -113,13 +115,13 @@ const AddMessageForm: React.FC<{wsChanel: WebSocket | null}> = ({wsChanel}) => {
     }
 
     return (
-        <>
+        <div className={c.form}>
             <div>
-                <textarea value={message} onChange={(e) => setMessage(e.currentTarget.value)}/>
+                <textarea  placeholder = 'Введите сообщение'className={c.formInput} value={message} onChange={(e) => setMessage(e.currentTarget.value)}/>
             </div>
             <div>
-                <button disabled={ wsChanel === null || readyStatus !== 'ready'} onClick={sendMessage}>send</button>
+                <button className={c.sendBtn} disabled={ wsChanel === null || readyStatus !== 'ready'} onClick={sendMessage}>send</button>
             </div>
-        </>
+        </div>
     )
 }

@@ -8,12 +8,16 @@
 }
 
 .menu__nav {
-    margin-left: 10px;
     margin-top: 3px;
 }
 
+.menu__nav_element {
+    padding-top: 10px;
+}
+
 .menu__nav_element:not(:last-child) {
-    margin-bottom: 7px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(144, 164, 182);
 }
 
 .item {
@@ -21,11 +25,16 @@
     text-decoration: none;
 }
 
+.item__text {
+    text-align: center;
+}
+
 .item:active {
     color: black;
 }
 
 .active {
-    color: rgb(102, 141, 127);
+    color: rgb(100, 117, 133);
     text-decoration: none;
+    background-color: rgb(80, 107, 133);
 }
